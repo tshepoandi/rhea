@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: "localhost"
+  username: "postgres"
+  password: "Welcometo2ufebruary2023!"
+
+development:
+  <<: *default
+  database: dev-rhea
+
+test:
+  <<: *default
+  database: test-rhea
