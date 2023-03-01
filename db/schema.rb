@@ -177,6 +177,9 @@ ActiveRecord::Schema.define(version: 2023_03_01_121333) do
     t.index ["page_id"], name: "index_comfy_cms_translations_on_page_id"
   end
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false

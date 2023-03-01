@@ -4,18 +4,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.4'
 
+gem 'rails', '5.2.7.1'
 
 gem 'pg'
-gem 'spree', '4.0.0'
+gem 'spree', '~> 4.0.0'
 gem 'spree_auth_devise', '~> 4.0.0'
-gem 'spree_gateway', '3.10.0'
+gem 'spree_gateway', '~> 3.6'
 gem 'dotenv-rails'
 gem 'comfortable_mexican_sofa', '2.0.18'
-
+gem 'slim-rails'
+gem 'data_migrate'
 
 gem "mimemagic", "~> 0.4.3"
 # Use Puma as the app server
