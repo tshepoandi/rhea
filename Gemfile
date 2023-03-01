@@ -18,7 +18,7 @@ gem 'dotenv-rails'
 gem 'comfortable_mexican_sofa', '2.0.18'
 
 
-
+gem "mimemagic", "~> 0.4.3"
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

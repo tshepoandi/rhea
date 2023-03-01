@@ -488,6 +488,7 @@ DEPENDENCIES
   comfortable_mexican_sofa (= 2.0.18)
   dotenv-rails
   listen (>= 3.0.5, < 3.2)
+  mimemagic (~> 0.4.3)
   pg
   puma (~> 3.11)
   rails (~> 6.0.0)
