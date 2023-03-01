@@ -1,0 +1,42 @@
+= form_for :order, html: { id: 'add-to-cart-form' } do |f|
+  .row#inside-product-cart-form data-hook="inside_product_cart_form",itemprop="offers",itemscope,itemtype="https://schema.org/Offer"
+  - if @product.variants_and_option_values(current_currency).any?
+    #product-variants.col-lg-6.mt-4
+      h3.product-section-title= Spree.t(:variants)
+      ul.list-group
+        - @product.variants_and_option_values(current_currency).each_with_index do |variant, index|
+          li.list-group-item.active - if index == 0
+              .form-check
+              =radio_button_tag "variant_id", variant.id, index == 0, data-price=variant.price_in(current_currency).money, data-in-stock=variant.can_supply?, data-backordered=variant.backordered?, class: 'form-check-input'
+    =label_tag "variant_id_#{variant.id}", class: "form-check-lable" do
+      span.variant-description = variant.options_text
+      - if variant_price(variant)
+        span.price.diff = variant_price(variant)
+      - unless variant.can_supply?
+        span.out-of-stock = Spree.t(:out_of_stock)
+      - else
+        = hidden_field_tag "variant_id", @product.master.id
+      - if @product.price_in(current_currency) && !@product.price.nil?
+        div.col-lg-5.mt-4 data-hook="product_price"
+          #product-price
+            h3.product-section-title= Spree.t(:price)
+            div
+              span.lead.price.selling itemprop="price", content= @product.price_in(current_currency).amount.to_d
+                = display_price(@product)
+              span itemprop="priceCurrency", content="current_currency"
+            - if @product.master.can_supply?
+              link itemprop="availability", href= "https://schema.org/InStock"
+            - elsif @product.variants.empty?
+              span.out-of-stock.d-block.mt-2= Spree.t(:out_of_stock)
+            - if @product.backordered?
+              div.alert.alert-warning#cart-backordered-info= Spree.t(:backordered_info)
+          - if @product.can_supply?
+            div.add-to-cart.mt-2
+              div.input-group
+                = number_field_tag :quantity, 1, class: 'title form-control', min: 1
+                div.input-group-append
+                  = button_tag Spree.t(:add_to_cart), class: 'btn btn-success', id: 'add-to-cart-button', type: :submit, disabled: true
+      - else
+        #product-price
+          div
+            span.price.selling itemprop: "price" =Spree.t('product_not_available_in_this_currency')
