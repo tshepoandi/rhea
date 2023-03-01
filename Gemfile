@@ -11,9 +11,11 @@ gem 'rails', '~> 6.0.0'
 
 
 gem 'pg'
-gem 'spree', '~> 4.1'
-gem 'spree_gateway', '~> 3.9'
-
+gem 'spree', '4.0.0'
+gem 'spree_auth_devise', '~> 4.0.0'
+gem 'spree_gateway', '3.10.0'
+gem 'dotenv-rails'
+gem 'comfortable_mexican_sofa', '2.0.18'
 
 
 
