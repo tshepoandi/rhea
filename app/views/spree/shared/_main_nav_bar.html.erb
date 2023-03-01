@@ -5,31 +5,6 @@
     </li>
     <li>
       <div style="Color:white;padding:3px">Categories:</div>
-      <ul class="nav-list">
-        <% category_taxons.each do |taxon| %>
-          <% if taxon.name != 'Categories'%>
-            <li>
-              <%=link_to taxon.name, spree.nested_taxons_path(taxon)%>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    </li>
-      <li>
-        <div style="Color:white;padding:3px">Brands:</div>
-        <ul>
-          <% brand_taxons.each do |taxon| %>
-            <% if taxon.name != 'Brands'%>
-              <li>
-                <%= link_to taxon.name, spree.nested_taxons_path(taxon) %>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-    </li>
-
-    <li>
-      <div style="Color:white;padding:3px">Categories:</div>
       <ul>
         <% category_taxons.each do |taxon| %>
           <% if taxon.name != 'Categories'%>
@@ -52,7 +27,6 @@
           <% end %>
         </ul>
     </li>
-
   </ul>
   <ul class="nav navbar-right nav-list" data-hook>
     <li id="link-to-cart" class="nav-item" data-hook>

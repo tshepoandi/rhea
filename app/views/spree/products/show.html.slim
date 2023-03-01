@@ -1,0 +1,26 @@
+- @body_id = 'product-details'
+= cache cache_key_for_product do
+  .row data-hook="product_show"
+    .col-lg-4.col-md-5 data-hook="product_left_part"
+      div data-hook="product_left_part_wrap"
+        #product-images data-hook="product_images"
+          #main-image.card
+            .card-body.text-center
+              = product_image(@product)
+          #thumbnails
+            = render partial: 'thumbnails'
+        div data-hook="product_properties"
+          = render partial: 'properties'
+        div data-hook="promotions"
+          = render partial: 'promotions'
+    .col-lg-8.col-md-7 data-hook="product_right_part"
+      div data-hook="product_right_part_wrap"
+        #product-description data-hook="product_description"
+          h1.product-title.mt-2 = @product.name
+          div data-hook="description"
+            = sanitize product_description(@product)
+          #cart-form data-hook="cart_form"
+            = render partial: 'cart_form'
+        #taxon-crumbs.mt-4 data-hook="product_taxons"
+          = render partial: 'taxons'
+= products_structured_data([@product])
