@@ -9,7 +9,6 @@ gem 'rails', '~> 6.0.0'
 # gem 'sqlite3', '~> 1.4'
 
 
-
 gem 'pg'
 gem 'spree', '4.0.0'
 gem 'spree_auth_devise', '~> 4.0.0'
