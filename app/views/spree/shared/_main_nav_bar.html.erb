@@ -3,6 +3,31 @@
     <li id="home-link" class="nav-item" data-hook>
       <%= link_to Spree.t(:home), spree.root_path, class: 'nav-link' %>
     </li>
+    <li>
+      <div style="Color:white;padding:3px">Categories:</div>
+      <ul>
+        <% category_taxons.each do |taxon| %>
+          <% if taxon.name != 'Categories'%>
+            <li>
+              <%=link_to taxon.name, spree.nested_taxons_path(taxon)%>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </li>
+      <li>
+        <div style="Color:white;padding:3px">Brands:</div>
+        <ul>
+          <% brand_taxons.each do |taxon| %>
+            <% if taxon.name != 'Brands'%>
+              <li>
+                <%= link_to taxon.name, spree.nested_taxons_path(taxon) %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+    </li>
+
   </ul>
   <ul class="nav navbar-right" data-hook>
     <li id="link-to-cart" class="nav-item" data-hook>
