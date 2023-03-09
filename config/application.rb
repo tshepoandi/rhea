@@ -11,6 +11,7 @@ module Rhea
     # Ensuring that ActiveStorage routes are loaded before Comfy's globbing
     # route. Without this file serving routes are inaccessible.
     config.railties_order = [ActiveStorage::Engine, :main_app, :all]
+    config.generators.template_engine = :slim
 
     config.to_prepare do
       # Load application's model / class decorators
@@ -24,7 +25,7 @@ module Rhea
       end
     end
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 5.2
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
